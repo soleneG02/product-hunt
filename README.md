@@ -64,6 +64,10 @@ First, you will need [Angular Material](https://material.angular.io/).
     ng add @angular/material
 ```
 
+```
+    ng add @angular/cdk
+```
+
 You will also need [lodash](https://lodash.com/) and [d3.js](https://d3js.org/).
 
 ```
@@ -97,7 +101,7 @@ To run the project, go in the `product-hunt`folder, and first launch the backend
 
 The backend is accessible at [http://localhost:3000/api](http://localhost:3000/api).
 
-To start the front end, enter inside the folder
+To start the front end, open a new window of your terminal and enter inside the folder
 
 ```
     cd product-hunt-front
