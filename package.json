@@ -1,0 +1,26 @@
+{
+  "name": "product-hunt",
+  "version": "1.0.0",
+  "description": "Project using Product Hunt API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "NODE_ENV=test mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soleneG02/product-hunt.git"
+  },
+  "author": "Solène Gardies",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "bugs": {
+    "url": "https://github.com/soleneG02/product-hunt/issues"
+  },
+  "homepage": "https://github.com/soleneG02/product-hunt#readme",
+  "devDependencies": {}
+}

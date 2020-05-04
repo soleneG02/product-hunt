@@ -1,0 +1,38 @@
+<mat-spinner
+    *ngIf="!products"
+    class="loading"
+></mat-spinner>
+<div
+    *ngIf="products"
+    class="all-products"
+>
+    <app-side-layout
+        [products]="products"
+        class="all-products__side-content"
+    ></app-side-layout>
+    <div class="all-products__body">
+        <app-header
+            [date]="displayedDate"
+            class="all-products__body-header"
+            (changedDate)="changeProductData($event)"
+        ></app-header>
+        <div class="all-products__body-list">
+            <h2
+                *ngIf="isEmptyProducts()"
+                class="all-products__body-list--none"
+            >
+                No product posted yet today...
+            </h2>
+            <app-product-box
+                *ngFor="let product of products"
+                [id]="product.id"
+                [name]="product.name"
+                [author]="product.author.name"
+                [description]="product.description"
+                [date]="product.date"
+                [picture]="product.picture"
+                [categories]="product.categories"
+            ></app-product-box>
+        </div>
+    </div>
+</div>

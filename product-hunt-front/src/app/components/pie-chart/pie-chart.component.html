@@ -1,0 +1,34 @@
+<div (window:resize)="resizePieChart()">
+    <div
+        id="pie"
+        class="pie-chart__chart"
+    >
+        <svg></svg>
+    </div>
+    <div
+        *ngIf="hasData"
+        class="pie-chart__legend"
+    >
+        <p class="pie-chart__legend-item-name">
+            Legend : number of posts refering to each category
+        </p>
+        <div class="pie-chart__legend-box">
+            <div
+                *ngFor="let category of formattedData"
+                class="pie-chart__legend-item"
+            >
+                <div
+                    [ngStyle]="{backgroundColor: category.color}"
+                    class="pie-chart__legend-color-box"
+                ></div>
+                <span
+                    [ngStyle]="{color: category.color}"
+                    class="pie-chart__legend-item-name"
+                >
+                    {{ category.name }}:
+                </span>
+                {{ category.value }}
+            </div>
+        </div>
+    </div>
+</div>

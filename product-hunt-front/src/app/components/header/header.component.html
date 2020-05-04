@@ -1,0 +1,23 @@
+<div class="header">
+    <form class="header__form">
+        <mat-form-field class="header__form-field">
+            <mat-label>
+                Filter by date
+            </mat-label>
+            <input
+                matInput
+                [matDatepicker]="picker"
+                [max]="maxDate"
+                [value]="formDate.value"
+                [formControl]="formDate"
+                (dateInput)="emitChangedDate($event)"
+                (dateChange)="emitChangedDate($event)"
+            >
+            <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+</div>  

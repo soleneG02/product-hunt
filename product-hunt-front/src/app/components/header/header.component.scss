@@ -1,0 +1,15 @@
+.header {
+    width: 100%;
+    padding: 20px 0px 10px 10px;
+    border-bottom: 1px lightgray solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.header__form {
+    margin-left: 30px;
+}
+
+.header__form-field {
+    margin-right: 40px;
+}

@@ -1,0 +1,12 @@
+.app__navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.app__content {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+}

@@ -1,0 +1,50 @@
+<div *ngIf="author">
+    <h1 class="author__title">
+        Author
+    </h1>
+    <div class="author__box">
+        <img
+            [src]="author.image"
+            [alt]="author.name"
+            class="author__image"
+        />
+        <div class="author__info">
+            <h2 class="author__info-name">
+                {{ author.name }}
+            </h2>
+            <a
+                [href]="author.profil_url"
+                class="author__info-website"
+            >
+                ({{ author.username }})
+            </a>
+        </div>
+    </div>
+    <div *ngIf="hasMakers">
+        <h1 class="makers__title">
+            Others makers
+        </h1>
+        <div class="makers__box">
+            <div *ngFor="let maker of makers">
+                <div class="makers__single-maker">
+                    <img
+                        [src]="maker.image"
+                        [alt]="maker.name"
+                        class="makers__single-maker-image"
+                    />
+                    <div class="makers__single-maker-info">
+                        <span class="makers__single-maker-info-name">
+                            {{ maker.name }}
+                        </span>
+                        <a
+                            [href]="maker.profil_url"
+                            class="author__info-website"
+                        >
+                            ({{ maker.username }})
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

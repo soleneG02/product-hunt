@@ -1,0 +1,33 @@
+.pie-chart__chart {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pie-chart__legend {
+    margin-right: 20px;
+}
+
+.pie-chart__legend-box {
+    border: black 1px dashed;
+    overflow: scroll;
+    padding: 5px;
+    max-height: 200px;
+}
+
+.pie-chart__legend-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.pie-chart__legend-item-name {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.pie-chart__legend-color-box {
+    min-height: 10px;
+    min-width: 10px;
+    margin-right: 5px;
+}

@@ -1,0 +1,21 @@
+<div class="side-layout">
+    <div *ngIf="products">
+        <h2 class="side-layout__title">
+            Categories
+        </h2>
+        <span class="side-layout__subtitle">
+            Category distribution of the selected day
+        </span>
+        <app-pie-chart
+            [parentID]="'app-side-layout'"
+            class="side-layout__pie-chart"
+        ></app-pie-chart>
+    </div>
+    <div *ngIf="singleProduct">
+        <app-author-details
+            [author]="userData"
+            [makers]="makersWithoutAuthor"
+            class="side-layout__author"
+        ></app-author-details>
+    </div>
+</div>

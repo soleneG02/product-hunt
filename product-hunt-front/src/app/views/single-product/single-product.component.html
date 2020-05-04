@@ -1,0 +1,71 @@
+<mat-spinner
+    *ngIf="!product"
+    class="loading"
+></mat-spinner>
+<div
+    *ngIf="product"
+    class="single-product"
+>
+    <app-side-layout
+        [singleProduct]="product"
+        class="single-product__side-content"
+    ></app-side-layout>
+    <div class="single-product__body">
+        <div class="single-product__body-header">
+            <div>
+                <h1 class="single-product__header-title">
+                    {{ product.name }}
+                </h1>
+                <h4 class="single-product__header-subtitle">Posted on {{ product.date }}</h4>
+            </div>
+            <a
+                mat-raised-button
+                [href]="product.redirect"
+                class="single-product__body-header--details"
+            >
+                See project
+            </a>
+        </div>
+        <div class="single-product__body-product">
+            <img
+                [src]="product.picture"
+                [alt]="product.name"
+                class="single-product__product-image"
+            />
+            <div class="single-product__product-description">
+                <div class="single-product__description-content"> 
+                    <div>
+                        <p class="single-product__description-content--body">{{ product.description }}</p>
+                        <mat-chip-list class="single-product__description-content--categories">
+                            <mat-chip *ngFor="let category of product.categories">
+                                {{ category.name }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div class="single-product__description-content--numbers">
+                        <div>
+                            <img
+                                src="./assets/comments.png"
+                                alt="comments"
+                                class="single-product__description-content--icon"
+                            >
+                            <span class="single-product__description-content--icon-text single-product__comments">
+                                {{ product.comments }} comments
+                            </span>
+                        </div>
+                        <div>
+                            <img
+                                src="./assets/likes.png"
+                                alt="votes"
+                                class="single-product__description-content--icon"
+                            >
+                            <span class="single-product__description-content--icon-text single-product__votes">
+                                {{ product.votes }} votes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

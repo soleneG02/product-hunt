@@ -1,0 +1,32 @@
+.loading {
+    margin: auto;
+    margin-top: 100px;
+}
+
+.all-products {
+    display: flex;
+    flex-direction: row;
+}
+
+.all-products__side-content {
+    position: fixed;
+    height: 100%;
+    width: 20%;
+}
+
+.all-products__body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20%;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+.all-products__body-list {
+    overflow-y: scroll;
+}
+
+.all-products__body-list--none {
+    margin: 50px;
+}
