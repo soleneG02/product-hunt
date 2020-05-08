@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,12 +15,12 @@ export class ApiService {
     return this.http.get(`${this.REST_API_SERVER}/api`);
   }
 
-  getPostsByDay(day) {
+  getPostsByDay(day: string) {
     console.log('You requested day', day, 'using', `${this.REST_API_SERVER}/api/${day}`);
     return this.http.get(`${this.REST_API_SERVER}/api/${day}`);
   }
 
-  getPostById(id) {
+  getPostById(id: number) {
     console.log('You requested id', id, 'using', `${this.REST_API_SERVER}/api/post/${id}`);
     return this.http.get(`${this.REST_API_SERVER}/api/post/${id}`);
   }

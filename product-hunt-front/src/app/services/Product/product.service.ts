@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { PieChartService } from '../PieChart/pie-chart.service';
 
 import { Category } from 'src/app/models/category.model';
-import { ShortProduct } from 'src/app/models/short-product.model';
-import { DetailledProduct } from 'src/app/models/detailled-product.model';
+import { Product } from 'src/app/models/product.model';
+import { DetailedProduct } from 'src/app/models/detailed-product.model';
 import { User } from 'src/app/models/user.model';
 
 @Injectable({
@@ -12,22 +12,22 @@ import { User } from 'src/app/models/user.model';
 })
 export class ProductService {
 
-  productsToDisplay: ShortProduct[];
-  singleProduct: DetailledProduct;
+  productsToDisplay: Product[];
+  singleProduct: DetailedProduct;
   colorCategoryReference: Category[];
 
   constructor(private pieChartService: PieChartService) {}
 
-  formatData(data): ShortProduct[] {
+  formatData(data): Product[] {
     const formattedData = [];
     this.colorCategoryReference = this.pieChartService.getCategoryData(data);
-    _.map(data, (dataObject) => {
+    for (const dataObject of data) {
       formattedData.push(this.formatSingleData(dataObject));
-    });
+    }
     return formattedData;
   }
 
-  formatSinglePost(data): DetailledProduct {
+  formatSinglePost(data): DetailedProduct {
     return {
       id: data.id,
       name: data.name,
@@ -43,7 +43,7 @@ export class ProductService {
     };
   }
 
-  private formatSingleData(data): ShortProduct {
+  private formatSingleData(data): Product {
     return {
       id: data.id,
       name: data.name,
@@ -64,7 +64,7 @@ export class ProductService {
     return categories;
   }
 
-  private getAssociatedCategoryData(id) {
+  private getAssociatedCategoryData(id: number) {
     if (!this.colorCategoryReference) {
       return { color: '', value: 0 };
     }
@@ -80,9 +80,9 @@ export class ProductService {
 
   private formatMakers(makers): User[] {
     const formattedMakers = [];
-    _.map(makers, (maker) => {
+    for (const maker of makers) {
       formattedMakers.push(this.formatUser(maker));
-    });
+    }
     return formattedMakers;
   }
 

@@ -1,16 +1,12 @@
 import { User } from './user.model';
 import { Category } from './category.model';
 
-export interface DetailledProduct {
+export interface Product {
     id: number;
     name: string;
-    author: User;
+    author: User; // user
     description: string;
-    date: string; // day
+    date: string;
     picture: string; // thumbnail.image_url
     categories: Category[]; // topics
-    comments: number; // comments_count
-    votes: number; // votes_count
-    redirect: string; // redirect_url
-    makers: User[];
 }

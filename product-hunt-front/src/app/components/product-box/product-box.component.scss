@@ -14,13 +14,14 @@
 
 .product-box__image {
     align-items: center;
-    max-width: 35%;
+    margin-left: 50px;
+    max-width: 220px;
 }
 
 .product-box__description {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 70%;
 }
 
 .product-box__description-header {

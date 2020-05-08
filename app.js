@@ -6,7 +6,7 @@ module.exports = {
   getPostsByDay: getPostsByDay
 };
 
-const token = '<YOUR_TOKEN_HERE>'
+const token = process.env.API_TOKEN
 
 const instance = axios.create({
   baseURL: 'https://api.producthunt.com/v1/posts',

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Component, OnInit, Input } from '@angular/core';
-import { ShortProduct } from 'src/app/models/short-product.model';
-import { DetailledProduct } from 'src/app/models/detailled-product.model';
+import { Product } from 'src/app/models/product.model';
+import { DetailedProduct } from 'src/app/models/detailed-product.model';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -11,8 +11,8 @@ import { User } from 'src/app/models/user.model';
 })
 export class SideLayoutComponent implements OnInit {
 
-  @Input() products: ShortProduct[];
-  @Input() singleProduct: DetailledProduct;
+  @Input() products: Product[];
+  @Input() singleProduct: DetailedProduct;
 
   userData: User;
   makersWithoutAuthor: User[];

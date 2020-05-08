@@ -25,13 +25,7 @@
             </h2>
             <app-product-box
                 *ngFor="let product of products"
-                [id]="product.id"
-                [name]="product.name"
-                [author]="product.author.name"
-                [description]="product.description"
-                [date]="product.date"
-                [picture]="product.picture"
-                [categories]="product.categories"
+                [product]="product"
             ></app-product-box>
         </div>
     </div>

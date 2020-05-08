@@ -1,9 +1,7 @@
 import * as d3 from 'd3';
-import _ from 'lodash';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from 'src/app/services/Product/product.service';
 import { Category } from 'src/app/models/category.model';
-import { ShortProduct } from 'src/app/models/short-product.model';
 
 @Component({
   selector: 'app-pie-chart',
@@ -27,7 +25,7 @@ export class PieChartComponent implements OnInit {
   constructor(private productService: ProductService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formattedData = this.productService.colorCategoryReference;
     this.drawPieChart();
   }
@@ -65,13 +63,12 @@ export class PieChartComponent implements OnInit {
       .attr('height', 2 * this.radius);
   }
 
-  private getParentDimensions() {
+  private getParentDimensions(): Array<number> {
     if (!this.parentID) {
       return [0, 0];
     }
     const parentElt = d3.select(this.parentID);
-    console.log(parentElt, _.get(parentElt, 'style'))
-    return _.get(parentElt, 'style')
+    return parentElt
       ? [parseInt(parentElt.style('height'), 10), parseInt(parentElt.style('width'), 10)]
       : [0, 0];
   }

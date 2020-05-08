@@ -38,19 +38,7 @@ You will need several dependencies for this project.
 Inside `product-hunt` folder, install the backend dependencies.
 
 ```
-    npm install axios --save
-```
-
-```
-    npm install express --save
-```
-
-```
-    npm install cors --save
-```
-
-```
-    npm install rxjs-compat --save
+    npm install
 ```
 
 Inside `product-hunt/product-hunt-front` folder, install the frontend dependencies.
@@ -71,12 +59,7 @@ First, you will need [Angular Material](https://material.angular.io/).
 You will also need [lodash](https://lodash.com/) and [d3.js](https://d3js.org/).
 
 ```
-    npm install lodash --save
-```
-
-```
-    npm install d3 --save
-    npm install -D @types/d3
+    npm install
 ```
 
 ### Connecting to the API
@@ -89,7 +72,7 @@ Click on "Add an application", give it a name and a random URI.
 
 Then in the "Developper Token" section, click on "Create Token".
 
-Finally, paste the token in the `app.js` file of the project.
+Finally, add the token into your process.env.API_TOKEN environment variable.
 
 ### Running
 

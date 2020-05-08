@@ -1,8 +1,7 @@
-import _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/Product/product.service';
 import { ApiService } from 'src/app/services/Api/api.service';
-import { ShortProduct } from 'src/app/models/short-product.model';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-all-products',
@@ -11,7 +10,7 @@ import { ShortProduct } from 'src/app/models/short-product.model';
 })
 export class AllProductsComponent implements OnInit {
 
-  products: ShortProduct[];
+  products: Product[];
   displayedDate: Date;
   dayRegexFormat = new RegExp(/^\d{4}\-\d{2}\-\d{2}$/);
 
@@ -31,7 +30,7 @@ export class AllProductsComponent implements OnInit {
       });
   }
 
-  getCertainDayPosts(day) {
+  getCertainDayPosts(day: string) {
     this.apiService.getPostsByDay(day)
       .subscribe((data: any) => {
         if (!data) { return; }
@@ -40,21 +39,21 @@ export class AllProductsComponent implements OnInit {
   }
 
   isEmptyProducts() {
-    return _.isNil(this.products) || _.isEmpty(this.products);
+    return !this.products || this.products.length === 0;
   }
 
   changeProductData(event) {
     this.products = undefined; // Show loader while waiting
     this.displayedDate = event.value;
     const formattedDay = this.formatDate(event.value);
-    if (!_.isNil(formattedDay) && this.dayRegexFormat.test(formattedDay)) {
+    if (!!formattedDay && this.dayRegexFormat.test(formattedDay)) {
       this.getCertainDayPosts(formattedDay);
     } else {
       this.getDefaultTodayPosts();
     }
   }
 
-  private formatDate(date): string {
+  private formatDate(date: Date): string {
     if (!(date instanceof Date)) {
       return '';
     }

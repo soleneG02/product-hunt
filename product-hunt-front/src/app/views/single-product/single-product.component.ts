@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/Product/product.service';

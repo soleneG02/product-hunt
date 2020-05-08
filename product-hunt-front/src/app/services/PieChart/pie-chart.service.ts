@@ -13,7 +13,7 @@ export class PieChartService {
 
   constructor() { }
 
-  getCategoryData(data): Category[] {
+  getCategoryData(data: Category[]): Category[] {
     const allCategories = this.getAllCategoriesArray(data);
     const groupedCategories = _.groupBy(allCategories, (category) => {
       return category.id;
@@ -21,9 +21,9 @@ export class PieChartService {
     return this.associateColorsToCategories(groupedCategories);
   }
 
-  private associateColorsToCategories(groupedCategories): Category[] {
+  private associateColorsToCategories(groupedCategories: object): Category[] {
     const colorCategoryData = [];
-    _.forEach(groupedCategories, (arrayOfCategories, key) => {
+    _.forEach(groupedCategories, (arrayOfCategories) => {
       const newData = {
         id: arrayOfCategories[0].id,
         name: arrayOfCategories[0].name,
@@ -36,16 +36,16 @@ export class PieChartService {
     return colorCategoryData;
   }
 
-  private getAllCategoriesArray(data): Category[] {
+  private getAllCategoriesArray(data: any[]): Category[] {
     const allCategories = [];
-    _.map(data, (product) => {
-        if (!product.topics) {
-          return;
-        }
-        _.map(product.topics, (topic) => {
-          allCategories.push(topic);
-        });
-    });
+    for (const product of data) {
+      if (!product.topics) {
+        return;
+      }
+      for (const topic of product.topics) {
+        allCategories.push(topic);
+      }
+    }
     return allCategories;
   }
 }

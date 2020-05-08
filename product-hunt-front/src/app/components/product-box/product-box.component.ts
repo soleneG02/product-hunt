@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product-box',
@@ -9,13 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProductBoxComponent implements OnInit {
 
-  @Input() id: number;
-  @Input() name: string;
-  @Input() description: string;
-  @Input() date: string;
-  @Input() author: string;
-  @Input() picture: string;
-  @Input() categories: object[];
+  @Input() product: Product;
 
   sampleCategories: object[];
   hasMoreCategories: boolean;
@@ -25,20 +19,20 @@ export class ProductBoxComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit(): void {
-    if (!this.categories) { return; }
-    this.sampleCategories = this.categories.slice(0, 3);
-    this.hasMoreCategories = this.categories.length > 3;
+    if (!this.product.categories) { return; }
+    this.sampleCategories = this.product.categories.slice(0, 3);
+    this.hasMoreCategories = this.product.categories.length > 3;
   }
 
-  adaptDescription() {
-    if (!this.description) { return; }
-    return this.description.length > this.MAX_DESCRIPTION_LENGTH
-      ? this.description.slice(0, this.MAX_DESCRIPTION_LENGTH) + '...'
-      : this.description;
+  adaptDescription(): string {
+    if (!this.product.description) { return; }
+    return this.product.description.length > this.MAX_DESCRIPTION_LENGTH
+      ? this.product.description.slice(0, this.MAX_DESCRIPTION_LENGTH) + '...'
+      : this.product.description;
   }
 
   goToDetails() {
-    const url = '/products/' + this.id;
+    const url = '/products/' + this.product.id;
     this.router.navigate([url]);
   }
 }

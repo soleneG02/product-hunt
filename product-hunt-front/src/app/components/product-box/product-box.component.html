@@ -1,14 +1,14 @@
 <mat-card class="product-box">
     <div class="product-box__body">
         <img
-            [src]="picture"
-            [alt]="name"
+            [src]="product.picture"
+            [alt]="product.name"
             class="product-box__image"
         />
         <div class="product-box__description">
             <mat-card-header class="product-box__description-header">
-                <mat-card-title>{{ name }}</mat-card-title>
-                <mat-card-subtitle>Posted on {{ date }} by {{ author }}</mat-card-subtitle>
+                <mat-card-title>{{ product.name }}</mat-card-title>
+                <mat-card-subtitle>Posted on {{ product.date }} by {{ product.author }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content class="product-box__description-content"> 
                 <p>{{ adaptDescription() }}</p>

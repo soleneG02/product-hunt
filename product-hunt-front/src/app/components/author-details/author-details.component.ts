@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 
@@ -18,7 +17,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.makers) { return; }
-    this.hasMakers = !_.isEmpty(this.makers);
+    this.hasMakers = this.makers.length !== 0;
   }
 
 }
